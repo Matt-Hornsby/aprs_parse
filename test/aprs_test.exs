@@ -1,7 +1,6 @@
 defmodule AprsTest do
   use ExUnit.Case
   alias Aprs.Parser
-  #doctest Aprs
 
   test "timestamped position" do
     aprs_message =
@@ -56,7 +55,9 @@ defmodule AprsTest do
   end
 
   test "weird format" do
-    aprs_message = ~s(ON4AVM-11>APDI23,WIDE1-1,WIDE2-2,qAR,ON0LB-10:=S4`k!OZ,C# sT/A=000049DIXPRS 2.3.0b\n)
+    aprs_message =
+      ~s(ON4AVM-11>APDI23,WIDE1-1,WIDE2-2,qAR,ON0LB-10:=S4`k!OZ,C# sT/A=000049DIXPRS 2.3.0b\n)
+
     sut = Parser.parse(aprs_message)
   end
 end
