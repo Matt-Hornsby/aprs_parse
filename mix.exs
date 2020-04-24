@@ -25,7 +25,7 @@ defmodule Aprs.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.21"},
+      {:ex_doc, "~> 0.21", only: :dev},
       {:credo, "~> 1.4 ", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.10", only: :test}
     ]
@@ -39,7 +39,7 @@ defmodule Aprs.MixProject do
     [
       name: "aprs_parse",
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/Matt-Hornsby/aprs_parse}"}
+      links: %{"GitHub" => "https://github.com/Matt-Hornsby/aprs_parse"}
     ]
   end
 end

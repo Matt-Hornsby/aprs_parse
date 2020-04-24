@@ -38,6 +38,15 @@ defmodule Aprs.Types.Position do
     }
   end
 
+  defp convert_garbage_to_zero(value) do
+      try do
+      _ = String.to_float(value)
+      value
+      rescue
+        ArgumentError -> "00000.00"
+    end
+  end
+
   def to_string(%__MODULE__{} = position) do
     "#{position.lat_degrees}°" <>
       "#{position.lat_minutes}'" <>
@@ -58,9 +67,6 @@ defmodule Aprs.Types.Position do
   defp convert_direction(:west), do: "W"
   defp convert_direction(:unknown), do: ""
   defp convert_direction(_nomatch), do: ""
-
-  defp convert_garbage_to_zero(a_float) when is_float(a_float), do: a_float
-  defp convert_garbage_to_zero(_not_a_float), do: "00000.00"
 
   defp convert_fractional(fractional),
     do:
