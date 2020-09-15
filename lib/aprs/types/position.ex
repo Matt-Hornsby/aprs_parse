@@ -15,7 +15,7 @@ defmodule Aprs.Types.Position do
     aprs_latitude = aprs_latitude |> String.replace(" ", "0") |> String.pad_leading(9, "0")
     aprs_longitude = aprs_longitude |> String.replace(" ", "0") |> String.pad_leading(9, "0")
 
-    Logger.debug("#{aprs_latitude} #{aprs_longitude}")
+    # Logger.debug("#{aprs_latitude} #{aprs_longitude}")
 
     <<latitude::binary-size(8), lat_direction::binary>> = aprs_latitude
     <<longitude::binary-size(8), lon_direction::binary>> = aprs_longitude
